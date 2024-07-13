@@ -47,6 +47,38 @@ def extract_course_data(df):
             course_data[course] = [slot]
     return course_data
 
+# def pdf_to_csv(pdf_file):
+#     with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as temp_pdf:
+#         temp_pdf.write(pdf_file.read())
+#         temp_pdf_path = temp_pdf.name
+#     csv_path = temp_pdf_path.replace('.pdf', '.csv')
+    
+#     try:
+#         tabula.convert_into(temp_pdf_path, csv_path, pages="all", output_format="csv")
+#     except Exception as e:
+#         st.error(f"Error converting PDF to CSV: {e}")
+    
+#     if os.path.exists(csv_path):
+#         return pd.read_csv(csv_path)
+#     else:
+#         st.error("CSV file not created.")
+#         return None
+
+
+
+# Function to extract course data
+# def extract_course_data(df):
+#     course_data = {}
+#     for index, row in df.iterrows():
+#         course = row['COURSE CODE']
+#         slot = row['SLOT']
+#         if course in course_data:
+#             course_data[course].append(slot)
+#         else:
+#             course_data[course] = [slot]
+#     return course_data
+
+
 # Initialize session state
 if 'selected_slots' not in st.session_state:
     st.session_state.selected_slots = {}
@@ -62,10 +94,6 @@ if 'course_being_edited' not in st.session_state:
 # Sidebar with website name
 st.sidebar.markdown('<h2 style=" border-radius: 10%; padding: 10px; text-align: center;"></h2>', unsafe_allow_html=True)
 
-
-# st.title("ClassSync")
-
-
 theory_pdf = st.file_uploader("Upload Theory Slots PDF", type="pdf")
 lab_pdf = st.file_uploader("Upload Lab Slots PDF", type="pdf")
 
@@ -80,7 +108,7 @@ if theory_pdf and lab_pdf:
                 st.success("PDFs uploaded and processed successfully!")
 
 
-    # Timetable data (example)
+# Timetable data (example)
 table_data = [
         ["Day/Time", "8 - 9", "9 - 10", "10 - 11", "11 - 12", "12 - 1", "1 - 1:30", "2 - 3", "3 - 4", "4 - 5", "5 - 6", "6 - 7", "7 - 7:30"],
         ["Tue", "TF1+L1", "TA1+L2", "E1+STC2+L3", "D1+L4", "B1+L5", "L6", "TA2+L31", "E2+STC1+L32", "D2+L33", "B2+L34", "TF2+L35", "L36"],
@@ -129,12 +157,7 @@ def update_table(selected_slots):
                 if part in selected_slots:
                     bg_color = selected_slots[part]  # Use the selected slot color
                     break
-            
-            # Set text color based on dark mode
             text_color = "#808080" 
-            #if st.session_state.get("dark_mode", False) else "#000"
-
-            # Render the slot cell with transparent background
             row.append(f'<div style="background-color:{bg_color}; color: {text_color}; padding: 5px; border: 1px solid rgba(0,0,0,0.1);">{slot}</div>')
         table.append(row)
     return table
@@ -176,11 +199,6 @@ def handle_update_course(course_code, new_slot, new_color):
     st.session_state.course_being_edited = None
     st.success(f"Course {course_code} updated successfully.")
 
-
-# table_html = '<table class="table-container" style="font-size: 0.9em;">' + ''.join(['<tr>' + ''.join([f'<td>{cell}</td>' for cell in row]) + '</tr>' for row in table_data]) + '</table>'
-# st.markdown(table_html, unsafe_allow_html=True)
-
-# Add custom CSS to align the main content beside the sidebar
 custom_css = """
     <style>
         .main .block-container {
@@ -208,8 +226,6 @@ custom_css = """
 st.markdown(custom_css, unsafe_allow_html=True)
 
 
-
-
 title_url = "https://sai.madhuram.xyz/wp-content/uploads/2024/07/Class.png"
 
 # Bottom bar
@@ -222,7 +238,6 @@ st.sidebar.markdown(
     """,
     unsafe_allow_html=True
 )
-
 
 
 st.sidebar.header("Course Selection")
@@ -323,13 +338,6 @@ else:
     st.sidebar.write("No courses applied yet.")
 
 
-# Use markdown to create a combined header with logos side by side
-# <h8 style='text-align: center; margin-top: 120px;  margin-right: -150px;margin-bottom: 10px;margin-left: 10px;'>Developed By</h8>
-#         <h6 style='text-align: center; margin-top: 140px;  margin-right: 40px;margin-bottom: 10px;margin-left: 350px;'>SURYA TEJESS</h6>
-#         <img src='{gfg_icon_url}' style='height: 150px;margin-top: 100px;  margin-right: 10px;margin-bottom: 10px;margin-left: 10px;'>
-
-
-
 
 # Sidebar for developer info
 # gfg_icon_url = "https://sai.madhuram.xyz/wp-content/uploads/2024/07/VIT_AP__1_-removebg-preview.png"
@@ -405,32 +413,4 @@ else:
 #     unsafe_allow_html=True
 # )
 
-
-
-
-
-#gfg_icon_url = "https://sai.madhuram.xyz/wp-content/uploads/2024/07/VIT_AP__1_-removebg-preview.png"
-#team_icon_url = "https://sai.madhuram.xyz/wp-content/uploads/2024/07/1.png"
-#<img src='{team_icon_url}' style='height: 200px;margin-top: -130px;margin-bottom: 10px;margin-right: -800px;margin-left: 300px; '>
-# st.markdown(
-#     f"""
-#     <div class='fixed-bottom-bar'>
-#         <div style='display: flex; align-items: center; justify-content: center;'>
-#         <h15 style='text-align: center; margin-top: -50px;  margin-right: -800px;margin-bottom: 10px;margin-left: 110px;'>Python Code by 'SURYA TEJESS' Collaborated with GFG VITAP STUDENT CHAPTER.</h15> 
-#         </div>
-#     </div>
-#     """,
-#     unsafe_allow_html=True
-# )
-# st.markdown(
-#     f"""
-#     <div class='fixed-bottom-bar'>
-#     <div style='display: flex; align-items: center; justify-content: center;'>
-#     <img src='{gfg_icon_url}' style='height: 150px;margin-top: -120px;margin-bottom: 10px;margin-right: -750px;margin-left: 840px; '>
-#     </div>
-#     </div>
-    
-#     """,
-#     unsafe_allow_html=True
-# )
 
