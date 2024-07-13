@@ -332,78 +332,78 @@ else:
 
 
 # Sidebar for developer info
-gfg_icon_url = "https://sai.madhuram.xyz/wp-content/uploads/2024/07/VIT_AP__1_-removebg-preview.png"
-team_icon_url = "https://sai.madhuram.xyz/wp-content/uploads/2024/07/1.png"
-title_url = "https://sai.madhuram.xyz/wp-content/uploads/2024/07/Class.png"
+# gfg_icon_url = "https://sai.madhuram.xyz/wp-content/uploads/2024/07/VIT_AP__1_-removebg-preview.png"
+# team_icon_url = "https://sai.madhuram.xyz/wp-content/uploads/2024/07/1.png"
+# title_url = "https://sai.madhuram.xyz/wp-content/uploads/2024/07/Class.png"
 
-# Bottom bar
-st.markdown(
-    f"""
-    <hr style='margin-top: 170px; margin-right: -220px;'>
-    <div style='display: flex; align-items: center; justify-content: center;'>
-        <h15 style='text-align: center; margin-top: -135px; margin-right: -340px; margin-bottom: 10px; margin-left: 650px;'>Developed & Powered By</h15>
-        <img src='{team_icon_url}' style='height: 200px; margin-top: -130px; margin-bottom: 10px; margin-right: -800px; margin-left: 300px;'>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+# # Bottom bar
+# st.markdown(
+#     f"""
+#     <hr style='margin-top: 170px; margin-right: -220px;'>
+#     <div style='display: flex; align-items: center; justify-content: center;'>
+#         <h15 style='text-align: center; margin-top: -135px; margin-right: -340px; margin-bottom: 10px; margin-left: 650px;'>Developed & Powered By</h15>
+#         <img src='{team_icon_url}' style='height: 200px; margin-top: -130px; margin-bottom: 10px; margin-right: -800px; margin-left: 300px;'>
+#     </div>
+#     """,
+#     unsafe_allow_html=True
+# )
 
-# Footer (full width)
-footer_html = """
-<style>
-.footer {
-    width: 100%;  /* Full width */
-    position: fixed;  /* Positioned relative to the page */
-    bottom: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    padding: 10px;
-    font-size: 14px;
-}
+# # Footer (full width)
+# footer_html = """
+# <style>
+# .footer {
+#     width: 100%;  /* Full width */
+#     position: fixed;  /* Positioned relative to the page */
+#     bottom: 0;
+#     left: 0;
+#     right: 0;
+#     text-align: center;
+#     padding: 10px;
+#     font-size: 14px;
+# }
 
-.powered-by {
-    font-size: 12px;
-    color: #555;  /* Darker color */
-}
+# .powered-by {
+#     font-size: 12px;
+#     color: #555;  /* Darker color */
+# }
 
-/* Light mode styles */
-@media (prefers-color-scheme: light) {
-    .footer {
-        background-color: #f0f2f6;  /* Light background */
-        color: #000;  /* Dark text */
-    }
-}
+# /* Light mode styles */
+# @media (prefers-color-scheme: light) {
+#     .footer {
+#         background-color: #f0f2f6;  /* Light background */
+#         color: #000;  /* Dark text */
+#     }
+# }
 
-/* Dark mode styles */
-@media (prefers-color-scheme: dark) {
-    .footer {
-        background-color: #262730;  /* Dark background */
-        color: #fff;  /* Light text */
-    }
-}
-</style>
-<div class="footer">
-    ©️ 2024 ClassSync. Python Code by 'SURYA TEJESS' Collaborated with GFG VITAP STUDENT CHAPTER.
-    <div class="powered-by">Powered by APPE NEXUS</div>
-</div>
-"""
-st.markdown(footer_html, unsafe_allow_html=True)
+# /* Dark mode styles */
+# @media (prefers-color-scheme: dark) {
+#     .footer {
+#         background-color: #262730;  /* Dark background */
+#         color: #fff;  /* Light text */
+#     }
+# }
+# </style>
+# <div class="footer">
+#     ©️ 2024 ClassSync. Python Code by 'SURYA TEJESS' Collaborated with GFG VITAP STUDENT CHAPTER.
+#     <div class="powered-by">Powered by APPE NEXUS</div>
+# </div>
+# """
+# st.markdown(footer_html, unsafe_allow_html=True)
 
-# Add padding to the main content to avoid overlap with the footer
-st.markdown(
-    """
-    <style>
-    .main-content {
-        padding-bottom: 60px;  /* Adjust this value based on the height of your footer */
-    }
-    </style>
-    <div class='main-content'>
-    <!-- Your main content goes here -->
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+# # Add padding to the main content to avoid overlap with the footer
+# st.markdown(
+#     """
+#     <style>
+#     .main-content {
+#         padding-bottom: 60px;  /* Adjust this value based on the height of your footer */
+#     }
+#     </style>
+#     <div class='main-content'>
+#     <!-- Your main content goes here -->
+#     </div>
+#     """,
+#     unsafe_allow_html=True
+# )
 
 
 
