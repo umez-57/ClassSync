@@ -4,7 +4,9 @@ import tabula
 #import tempfile
 #import os
 import pdfplumber
-
+from flask_cors import CORS
+app = flask_cors(__name__)
+CORS(app, resources={r"/*": {"origins": "https://www.classsync.gfgvitap.xyz/"}})
 # Function to read PDF and convert to DataFrame
 st.markdown("""
     <style>
