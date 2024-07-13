@@ -6,16 +6,33 @@ import tabula
 import pdfplumber
 
 # Function to read PDF and convert to DataFrame
+st.markdown("""
+    <style>
+    .upload-button {
+        padding: 10px 20px;
+        font-size: 14px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .upload-button:hover {
+        background-color: #45a049;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+# Function to read PDF and convert to DataFrame
 def pdf_to_csv(pdf_file):
     with pdfplumber.open(pdf_file) as pdf:
         data = []
         for page in pdf.pages:
-            # Extract the table from the page
             table = page.extract_table()
             if table:
-                data.extend(table)  # Add the table data to the list
-    # Create a DataFrame from the extracted data
-    df = pd.DataFrame(data[1:], columns=data[0])  # Use the first row as header
+                data.extend(table)
+    df = pd.DataFrame(data[1:], columns=data[0])
     return df
 
 # Function to extract course data
