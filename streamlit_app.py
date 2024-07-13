@@ -1,27 +1,22 @@
 import streamlit as st
 import pandas as pd
 import tabula
-import tempfile
-import os
+#import tempfile
+#import os
+import pdfplumber
 
-
-# Function to read PDF and convert to CSV
+# Function to read PDF and convert to DataFrame
 def pdf_to_csv(pdf_file):
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as temp_pdf:
-        temp_pdf.write(pdf_file.read())
-        temp_pdf_path = temp_pdf.name
-    csv_path = temp_pdf_path.replace('.pdf', '.csv')
-    
-    try:
-        tabula.convert_into(temp_pdf_path, csv_path, pages="all", output_format="csv")
-    except Exception as e:
-        st.error(f"Error converting PDF to CSV: {e}")
-    
-    if os.path.exists(csv_path):
-        return pd.read_csv(csv_path)
-    else:
-        st.error("CSV file not created.")
-        return None
+    with pdfplumber.open(pdf_file) as pdf:
+        data = []
+        for page in pdf.pages:
+            # Extract the table from the page
+            table = page.extract_table()
+            if table:
+                data.extend(table)  # Add the table data to the list
+    # Create a DataFrame from the extracted data
+    df = pd.DataFrame(data[1:], columns=data[0])  # Use the first row as header
+    return df
 
 # Function to extract course data
 def extract_course_data(df):
