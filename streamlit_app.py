@@ -96,8 +96,41 @@ if 'course_being_edited' not in st.session_state:
 # Sidebar with website name
 st.sidebar.markdown('<h2 style=" border-radius: 10%; padding: 10px; text-align: center;"></h2>', unsafe_allow_html=True)
 
-theory_pdf = st.file_uploader("Upload Theory Slots PDF", type="pdf")
-lab_pdf = st.file_uploader("Upload Lab Slots PDF", type="pdf")
+# Create two columns for the layout
+col1, col2 = st.columns([2, 1])  # Adjust the ratios as needed
+
+with col1:
+    # PDF uploaders
+    theory_pdf = st.file_uploader("Upload Theory Slots PDF", type="pdf")
+    lab_pdf = st.file_uploader("Upload Lab Slots PDF", type="pdf")
+
+# Add margin below the columns
+st.markdown("<br>", unsafe_allow_html=True)
+
+with col2:
+    # Applied Courses section in a scrollable box
+    st.markdown(
+    f"""
+    <div style='display: flex; align-items: center; justify-content: center;'>
+        <h3 style='text-align: center; margin-top: -10px; margin-right: -340px; margin-bottom: 10px; margin-left: 90px;'>Applied Courses</h3>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+    st.markdown("<div style='border: 1px solid #ccc;margin-top: -20px;margin-left: 200px;margin-right: -300px; border-radius: 5px; height: 200px; overflow-y: scroll;'>", unsafe_allow_html=True)
+    if st.session_state.selected_course_codes:
+        for code, slot in st.session_state.selected_course_codes.items():
+            st.write(f"Course: {code}, Slot: {slot}")
+    else:
+        st.markdown(
+    f"""
+    <div style='display: flex; align-items: center; justify-content: center;'>
+        <h9 style='text-align: center; margin-top: 10px; margin-right: -340px; margin-bottom: -10px; margin-left: 90px;'>No Courses applied yet</h9>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+    st.markdown("</div>", unsafe_allow_html=True)
 
 if theory_pdf and lab_pdf:
         with st.spinner('Processing...'):
@@ -135,7 +168,7 @@ for pair in conflict_pairs:
         conflict_dict[slot].remove(slot)
 
 color_dict = {
-    "Red": "#FF0000",
+    "Blue": "#000FFF",
     "Green": "#00FF00",
     "Pink": "#FF33F9",
     "Yellow": "#FFFF00",
@@ -330,14 +363,14 @@ if st.sidebar.button("Reset Table"):
 
 
 # Sidebar header for applied courses
-st.sidebar.header("Applied Courses")
+# st.sidebar.header("Applied Courses")
 
-# Display applied courses in the sidebar
-if st.session_state.selected_course_codes:
-    for code, slot in st.session_state.selected_course_codes.items():
-        st.sidebar.write(f"Course: {code}, Slot: {slot}")
-else:
-    st.sidebar.write("No courses applied yet.")
+# # Display applied courses in the sidebar
+# if st.session_state.selected_course_codes:
+#     for code, slot in st.session_state.selected_course_codes.items():
+#         st.sidebar.write(f"Course: {code}, Slot: {slot}")
+# else:
+#     st.sidebar.write("No courses applied yet.")
 
 
 
@@ -413,8 +446,8 @@ footer_html = f"""
         <a href="https://www.linkedin.com/in/suryatejessk?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
             <img src='https://sai.madhuram.xyz/wp-content/uploads/2024/07/download.png' alt='LinkedIn' style="border-radius: 8px; width: 30px; height: 30px;">
         </a>
-        <a href="https://github.com/GFGVIT-AP/ClassSync" target="_blank">
-            <img src='https://sai.madhuram.xyz/wp-content/uploads/2024/07/github.png' alt='LinkedIn' style="border-radius: 8px; width: 30px; height: 30px;">
+        <a href="https://www.instagram.com/geeksforgeeks_vitap/" target="_blank">
+            <img src='https://sai.madhuram.xyz/wp-content/uploads/2024/07/insta.jpg' alt='LinkedIn' style="border-radius: 8px; width: 30px; height: 30px;">
         </a>
     </div>
 </div>
