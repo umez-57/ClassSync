@@ -119,6 +119,7 @@ table_data = [
         ["Fri", "TCC1+L19", "TB1+L20", "TAA1+G1+L21", "TE1+L22", "F1+L23", "L24", "C2+L49", "TB2+L50", "TAA2+G2+L51", "TE2+SD1+L52", "TF2+L53", "L54"],
         ["Sat", "TDD1+L25", "C1+L26", "A1+L27", "TBB1+G1+L28", "E1+L29", "L30", "D2+L55", "TC2+L56", "A2+L57", "SF1+CLUBS+ECS+L58", "TEE2+L59", "L60"]
     ]
+
 conflict_pairs = []
 for i in range(1, len(table_data)):
     for j in range(1, len(table_data[i])):
@@ -278,11 +279,11 @@ if 'course_data_theory' in st.session_state and 'course_data_lab' in st.session_
 # scrolling_text = "<marquee style='margin-left: 10px;'>The new timetable will be updated after the University provides the 'Slot Timetable Annexure'.</marquee>"
 # st.markdown(scrolling_text, unsafe_allow_html=True)
 # table = update_table(st.session_state.selected_slots)
-# table_html = '<table class="table-container">' + ''.join(['<tr>' + ''.join([f'<td>{cell}</td>' for cell in row]) + '</tr>' for row in table]) + '</table>'
+# table_html = '<table class="table-container">' + ''.join(['<tr>' + ''.join([f'<td>{cell}</td>' for cell in row]) + '</tr>' for row in table_data]) + '</table>'
 # st.markdown(table_html, unsafe_allow_html=True)
 
 st.header("TimeTable")
-scrolling_text = "<marquee style='margin-left: 10px;'>The new timetable will be updated after the University provides the 'Slot Timetable Annexure'.</marquee>"
+scrolling_text = "<marquee style='margin-left: 10px;'>FALL SEMESTER(2024-2025) 'Slot Timetable Annexure'.</marquee>"
 st.markdown(scrolling_text, unsafe_allow_html=True)
 table = update_table(st.session_state.selected_slots)
 table_html = '<table class="table-container" style="font-size: 0.9em;">' + ''.join(['<tr>' + ''.join([f'<td>{cell}' for cell in row])  + '</tr>' for row in table]) + '</table>'
@@ -358,9 +359,9 @@ st.markdown(
 )
 
 # Footer (full width)
-footer_html = """
+footer_html = f"""
 <style>
-.footer {
+.footer {{
     width: 100%;  /* Full width */
     position: fixed;  /* Positioned relative to the page */
     bottom: 0;
@@ -369,42 +370,62 @@ footer_html = """
     text-align: center;
     padding: 10px;
     font-size: 14px;
-}
+    z-index: 100;  /* Ensure the footer is on top */
+}}
 
-.powered-by {
+.powered-by {{
     font-size: 12px;
     color: #555;  /* Darker color */
-}
+}}
 
-/* Light mode styles */
-@media (prefers-color-scheme: light) {
-    .footer {
+.icon-container {{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}}
+
+.icon-container a {{
+    margin: 0 5px;  /* Space between icons */
+}}
+
+.icon-container img {{
+    height: 30px;  /* Adjust icon size */
+}}
+
+@media (prefers-color-scheme: light) {{
+    .footer {{
         background-color: #f0f2f6;  /* Light background */
         color: #000;  /* Dark text */
-    }
-}
+    }}
+}}
 
-/* Dark mode styles */
-@media (prefers-color-scheme: dark) {
-    .footer {
+@media (prefers-color-scheme: dark) {{
+    .footer {{
         background-color: #262730;  /* Dark background */
         color: #fff;  /* Light text */
-    }
-}
+    }}
+}}
 </style>
 <div class="footer">
     ©️ 2024 ClassSync. Python Code by 'SURYA TEJESS' Collaborated with GFG VITAP STUDENT CHAPTER.
     <div class="powered-by">Powered by APPE NEXUS</div>
+    <div class="icon-container">
+        <a href="https://www.linkedin.com/in/suryatejessk?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+            <img src='https://sai.madhuram.xyz/wp-content/uploads/2024/07/download.png' alt='LinkedIn' style="border-radius: 8px; width: 30px; height: 30px;">
+        </a>
+        <a href="https://github.com/GFGVIT-AP/ClassSync" target="_blank">
+            <img src='https://sai.madhuram.xyz/wp-content/uploads/2024/07/github.png' alt='LinkedIn' style="border-radius: 8px; width: 30px; height: 30px;">
+        </a>
+    </div>
 </div>
 """
-st.markdown(footer_html, unsafe_allow_html=True)
 
-# Add padding to the main content to avoid overlap with the footer
+# Main content styling to avoid footer overlap
 st.markdown(
     """
     <style>
     .main-content {
-        padding-bottom: 60px;  /* Adjust this value based on the height of your footer */
+        padding-bottom: 80px;  /* Ensure enough space for the footer */
     }
     </style>
     <div class='main-content'>
@@ -413,5 +434,10 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
+# Render the footer
+st.markdown(footer_html, unsafe_allow_html=True)
+
+
 
 
