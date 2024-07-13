@@ -340,7 +340,7 @@ else:
 
 
 
-Sidebar for developer info
+# Sidebar for developer info
 gfg_icon_url = "https://sai.madhuram.xyz/wp-content/uploads/2024/07/VIT_AP__1_-removebg-preview.png"
 team_icon_url = "https://sai.madhuram.xyz/wp-content/uploads/2024/07/1.png"
 title_url = "https://sai.madhuram.xyz/wp-content/uploads/2024/07/Class.png"
