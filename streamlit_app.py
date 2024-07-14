@@ -104,7 +104,8 @@ with col1:
     theory_pdf = st.file_uploader("Upload Theory Slots PDF", type="pdf")
     lab_pdf = st.file_uploader("Upload Lab Slots PDF", type="pdf")
 
-
+# Add margin below the columns
+st.markdown("<br>", unsafe_allow_html=True)
 
 with col2:
     # Applied Courses section in a scrollable box
