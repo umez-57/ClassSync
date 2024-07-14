@@ -104,8 +104,7 @@ with col1:
     theory_pdf = st.file_uploader("Upload Theory Slots PDF", type="pdf")
     lab_pdf = st.file_uploader("Upload Lab Slots PDF", type="pdf")
 
-# Add margin below the columns
-st.markdown("<br>", unsafe_allow_html=True)
+
 
 with col2:
     # Applied Courses section in a scrollable box
@@ -168,11 +167,11 @@ for pair in conflict_pairs:
         conflict_dict[slot].remove(slot)
 
 color_dict = {
-    "Blue": "#000FFF",
+    "Teal" : "#20C997",
     "Green": "#00FF00",
     "Pink": "#FF33F9",
     "Yellow": "#FFFF00",
-    "Purple": "#800080",
+    "Dark Orchid" : "#9932CC",
     "Orange": "#FFA500"
 }
 
@@ -316,7 +315,7 @@ if 'course_data_theory' in st.session_state and 'course_data_lab' in st.session_
 # st.markdown(table_html, unsafe_allow_html=True)
 
 st.header("TimeTable")
-scrolling_text = "<marquee style='margin-left: 10px;'>FALL SEMESTER(2024-2025) 'Slot Timetable Annexure'.</marquee>"
+scrolling_text = "<marquee style='margin-top: -100px; margin-left: 10px;'>FALL SEMESTER(2024-2025) 'Slot Timetable Annexure'.</marquee>"
 st.markdown(scrolling_text, unsafe_allow_html=True)
 table = update_table(st.session_state.selected_slots)
 table_html = '<table class="table-container" style="font-size: 0.9em;">' + ''.join(['<tr>' + ''.join([f'<td>{cell}' for cell in row])  + '</tr>' for row in table]) + '</table>'
@@ -382,10 +381,10 @@ title_url = "https://sai.madhuram.xyz/wp-content/uploads/2024/07/Class.png"
 # Bottom bar
 st.markdown(
     f"""
-    <hr style='margin-top: 170px; margin-right: -220px;'>
+    <hr style='margin-top: 80px; margin-right: -220px;'>
     <div style='display: flex; align-items: center; justify-content: center;'>
         <h15 style='text-align: center; margin-top: -135px; margin-right: -340px; margin-bottom: 10px; margin-left: 650px;'>Developed & Powered By</h15>
-        <img src='{team_icon_url}' style='height: 200px; margin-top: -130px; margin-bottom: 10px; margin-right: -800px; margin-left: 300px;'>
+        <img src='{team_icon_url}' style='height: 200px; margin-top: -140px; margin-bottom: 10px; margin-right: -800px; margin-left: 290px;'>
     </div>
     """,
     unsafe_allow_html=True
