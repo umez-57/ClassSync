@@ -266,7 +266,7 @@ title_url = "https://sai.madhuram.xyz/wp-content/uploads/2024/07/Class.png"
 st.sidebar.markdown(
     f"""
     <div style='display: flex; align-items: center; justify-content: center;'>
-        <img src='{title_url}' style='height: 200px;   margin-top: -68px; margin-bottom: -50px; margin-right: 10px; margin-left: 10px;'>
+        <img src='{title_url}' style='height: 200px;   margin-top: -60px; margin-bottom: -50px; margin-right: 10px; margin-left: 10px;'>
     </div>
     <hr style='margin-top: -20px; margin-left: 10px;'>
     """,
