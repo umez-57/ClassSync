@@ -124,7 +124,7 @@ with col2:
         st.markdown(
         f"""
         <div style='display: flex; align-items: center; justify-content: center;'>
-            <p style='text-align: center; margin-top: 10px;'>No Courses applied yet</p>
+            <p style='text-align: center; margin-top: 10px; margin-right: -340px; margin-bottom: 10px; margin-left: 90px;'>No Courses applied yet</p>
         </div>
         """,
         unsafe_allow_html=True
