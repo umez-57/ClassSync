@@ -111,7 +111,7 @@ with col2:
     st.markdown(
     f"""
     <div style='display: flex; align-items: center; justify-content: center;'>
-        <h3 style='text-align: center; margin-top: -10px; margin-right: -200px; margin-bottom: 10px; margin-left: 90px;'>Applied Courses</h3>
+        <h3 style='text-align: center; margin-top: -10px; margin-right: -200px; margin-bottom: 10px; margin-left: 50px;'>Applied Courses</h3>
     </div>
     """,
     unsafe_allow_html=True
