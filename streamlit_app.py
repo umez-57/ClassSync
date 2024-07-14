@@ -116,10 +116,11 @@ with col2:
     """,
     unsafe_allow_html=True
 )
-    #st.markdown("<div style='border: 1px solid #ccc; margin-left: 200px; margin-right: -200px; border-radius: 5px; height: 200px; overflow-y: scroll;'>", unsafe_allow_html=True)
+    st.markdown("<div style='border: 1px solid #ccc; margin-left: 200px; margin-right: -200px; border-radius: 5px; height: 200px; overflow-y: scroll;'>", unsafe_allow_html=True
     if st.session_state.selected_course_codes:
         for code, slot in st.session_state.selected_course_codes.items():
             st.write(f"Course: {code}, Slot: {slot}")
+    )
     else:
         st.markdown(
         f"""
