@@ -116,20 +116,21 @@ with col2:
     """,
     unsafe_allow_html=True
 )
-    st.markdown("<div style='border: 1px solid #ccc;margin-top: -20px;margin-left: 200px;margin-right: -300px; border-radius: 5px; height: 200px; overflow-y: scroll;'>", unsafe_allow_html=True)
+    st.markdown("<div style='border: 1px solid #ccc; margin-top: -20px; margin-left: 200px; margin-right: -300px; border-radius: 5px; height: 200px; overflow-y: scroll;'>", unsafe_allow_html=True)
     if st.session_state.selected_course_codes:
         for code, slot in st.session_state.selected_course_codes.items():
             st.write(f"Course: {code}, Slot: {slot}")
     else:
         st.markdown(
-    f"""
-    <div style='display: flex; align-items: center; justify-content: center;'>
-        <h9 style='text-align: center; margin-top: 10px; margin-right: -340px; margin-bottom: -10px; margin-left: 90px;'>No Courses applied yet</h9>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+        f"""
+        <div style='display: flex; align-items: center; justify-content: center;'>
+            <p style='text-align: center; margin-top: 10px;'>No Courses applied yet</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
     st.markdown("</div>", unsafe_allow_html=True)
+
 
 if theory_pdf and lab_pdf:
         with st.spinner('Processing...'):
