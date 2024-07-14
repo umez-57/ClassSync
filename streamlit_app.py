@@ -111,12 +111,12 @@ with col2:
     st.markdown(
     f"""
     <div style='display: flex; align-items: center; justify-content: center;'>
-        <h3 style='text-align: center; margin-top: -10px; margin-right: -340px; margin-bottom: 10px; margin-left: 90px;'>Applied Courses</h3>
+        <h3 style='text-align: center; margin-top: -10px; margin-right: -200px; margin-bottom: 10px; margin-left: 90px;'>Applied Courses</h3>
     </div>
     """,
     unsafe_allow_html=True
 )
-   # st.markdown("<div style=' margin-top: -20px; margin-right: -340px; margin-bottom: 10px; margin-left: 90px; border-radius: 5px; height: 200px; overflow-y: scroll;'>", unsafe_allow_html=True)
+    st.markdown("<div style='border: 1px solid #ccc; margin-left: 200px; margin-right: -200px; border-radius: 5px; height: 200px; overflow-y: scroll;'>", unsafe_allow_html=True)
     if st.session_state.selected_course_codes:
         for code, slot in st.session_state.selected_course_codes.items():
             st.write(f"Course: {code}, Slot: {slot}")
@@ -124,7 +124,7 @@ with col2:
         st.markdown(
         f"""
         <div style='display: flex; align-items: center; justify-content: center;'>
-            <p style='text-align: center; margin-top: 10px; margin-right: -340px; margin-bottom: 10px; margin-left: 90px;'>No Courses applied yet</p>
+            <p style='text-align: center; margin-top: 10px;'>No Courses applied yet</p>
         </div>
         """,
         unsafe_allow_html=True
